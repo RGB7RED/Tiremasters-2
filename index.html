@@ -1,127 +1,133 @@
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .site-header {
-    background-color: #000;
-    padding: 20px 0;
-  }
-
-  .site-header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-
-  .site-header .logo {
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .btn-primary {
-    background-color: #e30613;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-  }
-
-  .burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-  }
-
-  .burger div {
-    width: 25px;
-    height: 3px;
-    background: white;
-  }
-
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background: #000;
-    padding: 20px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  }
-
-  @media (min-width: 0px) {
-    nav ul {
-      display: none;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TireMasters</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    .burger {
-      display: flex;
+    .site-header {
+      background-color: #000;
+      padding: 20px 0;
     }
 
-    .mobile-menu.active {
+    .site-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
     .btn-primary {
-      margin-top: 10px;
+      background-color: #e30613;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
     }
-  }
-</style>
 
-<div class="site-header">
-  <div class="container">
-    <a href="/" class="logo">TireMasters</a>
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
 
-    <!-- Бургер-меню -->
-    <div class="burger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: #000;
+      padding: 20px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+    }
+
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">TireMasters</a>
+
+      <div class="header-right">
+        <div class="burger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <a href="#order" class="btn-primary desktop-only">Вызвать мастера</a>
+      </div>
     </div>
-
-    <!-- Обычное меню (показывается только на десктопе) -->
-    <nav>
-  <a href="#order" class="btn-primary desktop-only">Вызвать мастера</a>
-  <ul>
-    <li><a href="#services">Услуги</a></li>
-    <li><a href="#about">О нас</a></li>
-    <li><a href="#contacts">Контакты</a></li>
-  </ul>
-</nav>
 
     <!-- Мобильное меню -->
     <div class="mobile-menu" id="mobileMenu">
@@ -130,12 +136,14 @@
       <a href="#contacts">Контакты</a>
       <a href="#order" class="btn-primary">Вызвать мастера</a>
     </div>
-  </div>
-</div>
+  </header>
 
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('active');
-  }
-</script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
