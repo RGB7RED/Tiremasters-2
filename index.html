@@ -22,6 +22,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative; /* НУЖНО для .mobile-menu */
     }
 
     .logo {
@@ -86,6 +87,7 @@
       top: 100%;
       left: 0;
       width: 100%;
+      z-index: 1000;
     }
 
     .mobile-menu a {
@@ -126,15 +128,15 @@
           <div></div>
         </div>
         <a href="#order" class="btn-primary desktop-only">Вызвать мастера</a>
-      </div>
-    </div>
 
-    <!-- Мобильное меню -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#services">Услуги</a>
-      <a href="#about">О нас</a>
-      <a href="#contacts">Контакты</a>
-      <a href="#order" class="btn-primary">Вызвать мастера</a>
+        <!-- Мобильное меню внутри контейнера -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#services">Услуги</a>
+          <a href="#about">О нас</a>
+          <a href="#contacts">Контакты</a>
+          <a href="#order" class="btn-primary">Вызвать мастера</a>
+        </div>
+      </div>
     </div>
   </header>
 
